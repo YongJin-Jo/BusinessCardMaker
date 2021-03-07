@@ -1,14 +1,19 @@
 @value makerGreen, makerLightPink, makerWhite from '../../common/colors.css';
 
 .login {
-  width: 30em;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: makerWhite;
 }
-
+.contents{
+  width: 30em
+}
+.main{
+  width: 100em;
+  height: 100%;
+}
 .list {
   width: 100%;
   display: flex;
