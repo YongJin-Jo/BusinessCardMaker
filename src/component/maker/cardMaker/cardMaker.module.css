@@ -1,8 +1,9 @@
-@value makerGreen '../../common/colors.css';
+@value makerGreen, makerLightGrey  from '../../../common/colors.css';
 
 .cardmaker{
   flex-basis: 50%;
-  background-color: palegoldenrod;
+  border-right: 1px solid makerLightGrey;
+  padding: 0.5em 2em;
 }
 
 .title{
