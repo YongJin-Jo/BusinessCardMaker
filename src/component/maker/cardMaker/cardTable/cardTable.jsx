@@ -2,7 +2,7 @@ import React from 'react'
 import ImageFileInput from '../../../image_file_input/image_file_input';
 import styles from '../cardTable/cardTable.module.css'
 import Button from './button/button';
-const CardTable = ({card}) => {
+const CardTable = ({card,key}) => {
   const {name,company,theme,title,email,message,fileName,fileURL} = card;
 
   const onsubmit = () =>{
