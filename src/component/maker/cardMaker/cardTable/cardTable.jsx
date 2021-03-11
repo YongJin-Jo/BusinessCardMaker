@@ -1,8 +1,7 @@
 import React from 'react'
-import ImageFileInput from '../../../image_file_input/image_file_input';
 import styles from '../cardTable/cardTable.module.css'
 import Button from './button/button';
-const CardTable = ({card,createOrUpdateCard,deleteCard}) => {
+const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
   const {
     name,
     company,
@@ -11,7 +10,16 @@ const CardTable = ({card,createOrUpdateCard,deleteCard}) => {
     email,
     message,
     fileName,
-    fileURL} = card;
+    fileURL
+  } = card;
+
+  const onFileChange =(file) =>{
+    createOrUpdateCard({
+      ...card,
+      fileName:file.name,
+      fileURL:file.url
+    })
+  }
 
   const onChange = (event) =>{
     if(event.currentTarget == null){
@@ -79,7 +87,7 @@ const CardTable = ({card,createOrUpdateCard,deleteCard}) => {
     className={styles.fileInput}
     onChange={onChange}
     >
-      <ImageFileInput/>
+    <FileInput name={name} onFileChange={onFileChange}/>
     </div>
     <Button 
     name="Delete" 

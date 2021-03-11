@@ -5,7 +5,7 @@ import Header from '../header/header'
 import CardMaker from './cardMaker/cardMaker'
 import CardPreview from './cardPreview/cardPreview'
 import style from './maker.module.css'
-const Maker = ({authService}) => {
+const Maker = ({FileInput,authService}) => {
 
   const [cards,setcards] =useState({
     '1': {
@@ -80,9 +80,11 @@ const Maker = ({authService}) => {
       <Header onLogout ={onLogout}/>
       <div className ={style.container}>
         <CardMaker 
+        FileInput={FileInput}
         cards ={cards} 
         createOrUpdateCard ={createOrUpdateCard}
         deleteCard ={deleteCard}
+        
         />
         <CardPreview cards ={cards}/>
       </div>

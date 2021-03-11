@@ -2,7 +2,7 @@ import React from 'react'
 import style from '../cardMaker/cardMaker.module.css'
 import AddForm from './addform/addform'
 import CardTable from './cardTable/cardTable'
-const CardMaker = ({cards,createOrUpdateCard,deleteCard}) => {
+const CardMaker = ({FileInput,cards,createOrUpdateCard,deleteCard}) => {
   return (
     <section className={style.cardmaker} >
       <h1 className ={style.title}>Card Maker</h1>
@@ -10,13 +10,19 @@ const CardMaker = ({cards,createOrUpdateCard,deleteCard}) => {
       {
         Object.keys(cards).map(key => {
           return <CardTable 
-          key={key} card={cards[key]} 
+          FileInput={FileInput}
+          key={key} 
+          card={cards[key]} 
           createOrUpdateCard={createOrUpdateCard} 
           deleteCard={deleteCard}
+          
           />
         }) 
       }
-      <AddForm  createOrUpdateCard={createOrUpdateCard} />
+      <AddForm  
+        createOrUpdateCard={createOrUpdateCard}
+        FileInput={FileInput}
+        />
       </ul>
       
     </section>
