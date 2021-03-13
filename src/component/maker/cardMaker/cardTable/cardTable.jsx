@@ -10,7 +10,6 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
     email,
     message,
     fileName,
-    fileURL
   } = card;
 
   const onFileChange =(file) =>{
@@ -87,14 +86,14 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
     className={styles.fileInput}
     onChange={onChange}
     >
-    <FileInput name={name} onFileChange={onFileChange}/>
+    <FileInput name={fileName} onFileChange={onFileChange}/>
     </div>
     <Button 
     name="Delete" 
     onClick={onSubmit} 
     />
    </form>
-   <br/>
+   
    </>
    
   )
