@@ -20,6 +20,7 @@ const Login = ({ authService }) => {
       .login(event.currentTarget.textContent)
       .then((result) => {
         goToMaker(result.user.uid)
+        
       });
   };
 
