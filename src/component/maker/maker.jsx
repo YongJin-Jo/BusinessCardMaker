@@ -7,53 +7,53 @@ import CardPreview from './cardPreview/cardPreview'
 import style from './maker.module.css'
 const Maker = ({FileInput,authService, cardRepository}) => {
   
-  const history = useHistory();
-  const historyState=history?.location?.state;
+  const historyState = useHistory().state;
+  const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const [cards,setcards] =useState({});
-
-
-  const onLogout = () =>{
+  const history = useHistory();
+  const onLogout = () => {
     authService.logout();
-  }
+  };
 
-  useEffect(()=>{
-    if(!userId){
-      return
+  useEffect(() => {
+    if (!userId) {
+      return;
     }
-    const stopSync = cardRepository.syncCards(userId, cards =>{
-      setcards(cards);
-    })
-    return () => stopSync()
-  },[userId,cardRepository])
+    const stopSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    });
+    return () => stopSync();
+  }, [userId, cardRepository]);
 
-  useEffect(() =>{
-    authService.onAuthChange(user =>{
-      if(user){
-        setUserId(user.uid)
-      }else{ 
-        history.push('/')
+  useEffect(() => {
+    authService.onAuthChange(user => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        history.push('/');
       }
-    })
-  },[userId,authService,history])
+    });
+  }, [authService, userId, history]);
 
+  const createOrUpdateCard = card => {
+   
+    setCards(cards => {
+      const updated = { ...cards };
+      updated[card.id] = card;
+      return updated;
+    });
+    cardRepository.saveCard(userId, card);
+  };
 
-
-  const createOrUpdateCard = (data) =>{
-    const updated = {...cards};
-    updated[data.id]=data;
-    setcards( updated);
-    cardRepository.saveCard(userId, data)
-    
-  }
-
-  const deleteCard = (data) =>{
-    const updated = {...cards};
-    delete updated[data.id];
-    setcards(updated);
-    cardRepository.removeCard(userId, data)
-  }
+  const deleteCard = card => {
+    setCards(cards => {
+      const updated = { ...cards };
+      delete updated[card.id];
+      return updated;
+    });
+    cardRepository.removeCard(userId, card);
+  };
 
 
   return (
@@ -65,7 +65,6 @@ const Maker = ({FileInput,authService, cardRepository}) => {
         cards ={cards} 
         createOrUpdateCard ={createOrUpdateCard}
         deleteCard ={deleteCard}
-        
         />
         <CardPreview cards ={cards}/>
       </div>

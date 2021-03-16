@@ -1,8 +1,6 @@
 import { firebaseDatabase } from './firebase';
 
 class CardRepository {
-
-  
   syncCards(userId, onUpdate) {
     const ref = firebaseDatabase.ref(`${userId}/cards`);
     ref.on('value', snapshot => {

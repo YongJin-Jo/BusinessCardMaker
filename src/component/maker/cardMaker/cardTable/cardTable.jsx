@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { memo, useRef } from 'react'
 import styles from '../cardTable/cardTable.module.css'
 import Button from './button/button';
-const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
-  const {
-    name,
-    company,
-    theme,
-    title,
-    email,
-    message,
-    fileName,
-  } = card;
+const CardTable = memo(({FileInput,card,createOrUpdateCard,deleteCard}) => {
+
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
+
+  const { name, company, title, email, message, theme, fileName } = card;
 
   const onFileChange =(file) =>{
     createOrUpdateCard({
@@ -21,12 +21,15 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
   }
 
   const onChange = (event) =>{
-    if(event.currentTarget == null){
+    if(event.currentTarget == null ){
+      return
+    }else if(event.currentTarget.name === undefined){
       return
     }
     event.preventDefault();
     createOrUpdateCard({
       ...card,
+      
       [event.currentTarget.name]:event.currentTarget.value,
     });
 
@@ -43,20 +46,26 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
      className={styles.input} 
      type="text" 
      name='name' 
+     ref={nameRef}
      value={name}
+     placeholder='Name'
      onChange={onChange}
      />
      <input 
      className={styles.input} 
      type="text" 
      name='company' 
+     ref={companyRef}
      value={company}
+     placeholder='Company'
      onChange={onChange}
      />
      <select 
      className={styles.select} 
      name="theme" 
+     ref={themeRef}
      value={theme}
+     placeholder='Theme'
      onChange={onChange}
      >
        <option value="light">Light</option>
@@ -67,19 +76,25 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
      className={styles.input} 
      type="text" 
      name='title' 
+     ref={titleRef}
      value={title}
+     placeholder='Title'
      onChange={onChange}
      />
      <input className={styles.input} 
      type="text" 
      name='email' 
+     ref={emailRef}
      value={email}
+     placeholder='Email'
      onChange={onChange}
      />
     <textarea 
     className={styles.textarea} 
     name="message" 
+    ref={messageRef}
     value={message}
+    placeholder='Message'
     onChange={onChange}
     ></textarea>
     <div 
@@ -97,7 +112,7 @@ const CardTable = ({FileInput,card,createOrUpdateCard,deleteCard}) => {
    </>
    
   )
-}
+})
 
 export default CardTable
 

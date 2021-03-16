@@ -14,13 +14,11 @@ const Login = ({ authService }) => {
     })
   }
 
-
   const onLogin = event => {
     authService //
       .login(event.currentTarget.textContent)
       .then((result) => {
         goToMaker(result.user.uid)
-        
       });
   };
 
