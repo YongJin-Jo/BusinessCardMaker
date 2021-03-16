@@ -1,4 +1,4 @@
-@value makerGreen '../../common/colors.css';
+@value makerWhite,makerGreen, makerLightGrey  from '../../../common/colors.css';
 
 .cardPreview{
   flex-basis: 50%;

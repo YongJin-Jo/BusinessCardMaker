@@ -14,16 +14,3 @@
   color: makerGreen;
 }
 
-.contain{
-  display: flex;
-  width: 100%;
-
-}
-
-.button{
-  border: none;
-  background-color: makerWhite;
-  cursor: pointer;
-  opacity: 0.8;
-
-}

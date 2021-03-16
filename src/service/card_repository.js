@@ -9,6 +9,7 @@ class CardRepository {
     });
     return () => ref.off();
   }
+
   saveCard(userId, card) {
     firebaseDatabase.ref(`${userId}/cards/${card.id}`).set(card);
   }

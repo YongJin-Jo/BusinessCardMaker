@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Footer from '../footer/footer'
 import Header from '../header/header'
@@ -8,7 +8,9 @@ import style from './maker.module.css'
 const Maker = ({FileInput,authService, cardRepository}) => {
   
   const historyState = useHistory().state;
-  const [cards, setCards] = useState({});
+  const [cards, setCards] = useState({
+
+  });
   const [userId, setUserId] = useState(historyState && historyState.id);
 
   const history = useHistory();
@@ -29,12 +31,14 @@ const Maker = ({FileInput,authService, cardRepository}) => {
   useEffect(() => {
     authService.onAuthChange(user => {
       if (user) {
-        setUserId(user.uid);
+        setUserId(user.uid)
       } else {
         history.push('/');
       }
     });
   }, [authService, userId, history]);
+
+  
 
   const createOrUpdateCard = card => {
    

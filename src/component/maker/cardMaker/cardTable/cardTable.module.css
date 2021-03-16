@@ -40,8 +40,10 @@
 .select:focus,
 .button:focus {
   outline: 0;
+
 }
 
 .textarea {
   flex-basis: 100%;
+  font-size: 1rem;
 }
