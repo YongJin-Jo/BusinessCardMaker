@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BusinessCardMaker/static/css/main.a72ba630.chunk.css",
-    "main.js": "/BusinessCardMaker/static/js/main.0b1fa0ff.chunk.js",
-    "main.js.map": "/BusinessCardMaker/static/js/main.0b1fa0ff.chunk.js.map",
+    "main.js": "/BusinessCardMaker/static/js/main.9555be30.chunk.js",
+    "main.js.map": "/BusinessCardMaker/static/js/main.9555be30.chunk.js.map",
     "runtime-main.js": "/BusinessCardMaker/static/js/runtime-main.55695f7f.js",
     "runtime-main.js.map": "/BusinessCardMaker/static/js/runtime-main.55695f7f.js.map",
     "static/js/2.cc2b4b51.chunk.js": "/BusinessCardMaker/static/js/2.cc2b4b51.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.55695f7f.js",
     "static/js/2.cc2b4b51.chunk.js",
     "static/css/main.a72ba630.chunk.css",
-    "static/js/main.0b1fa0ff.chunk.js"
+    "static/js/main.9555be30.chunk.js"
   ]
 }
