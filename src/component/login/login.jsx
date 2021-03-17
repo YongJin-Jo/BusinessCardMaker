@@ -9,7 +9,7 @@ const Login = ({ authService }) => {
 
   const goToMaker = (userId) => {
     history.push({
-      pathname: '/maker',
+      pathname: 'BusinessCardMaker/maker',
       state:{id:userId},
     })
   }
